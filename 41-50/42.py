@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import math
-FILE = open("words.txt", "r")
+FILE = open("42.txt", "r")
 temp = FILE.read()
 wlist = [word.strip('"') for word in temp.split(',')] 
 
