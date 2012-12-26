@@ -1,23 +1,17 @@
 #!/usr/bin/python
+import time
+start = time.time()
 import math
-def prime_check(x):
-    if x == 2: return True
-    if x % 2 == 0 or x < 2: return False
-    return not any(x % i == 0 for i in range(2, int(math.sqrt(x)) + 2))
-plist = []
-for i in range(1000000): 
-    if prime_check(i) == True: plist.append(i)
-
-rotate = lambda x: int(str(x)[1:] + str(x)[0])
+n = 1000000; temp = [False] * 2 + [True] * n
+for i in range(2, int(math.sqrt(n))+2):
+    if temp[i]:
+        for j in range(i**2, n+1, i): temp[j] = False
+plist = [i for i in range(len(temp)) if temp[i] if not any(int(j) % 2 == 0 or int(j) % 5 == 0 for j in str(i))]
+rotate = lambda x: int(str(x)[-1] + str(x)[:-1])
 def circu_check(n):
     for i in range(len(str(n)) - 1):
-        if len(str(rotate(n))) != len(str(n)): return False
         n = rotate(n)
-        if not prime_check(n): return False
+        if not n in plist: return False
     return True
-
-clist = [i for i in plist if circu_check(i)]
-for i in clist:
-    if clist.count(i) > 1:
-        for j in range(clist.count(i) - 1): clist.remove(i)
-print(len(clist))
+print(len([i for i in plist if circu_check(i)])+2)
+print(time.time() - start)
