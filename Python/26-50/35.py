@@ -1,6 +1,4 @@
 #!/usr/bin/python
-import time
-start = time.time()
 import math
 n = 1000000; temp = [False] * 2 + [True] * n
 for i in range(2, int(math.sqrt(n))+2):
@@ -14,4 +12,3 @@ def circu_check(n):
         if not n in plist: return False
     return True
 print(len([i for i in plist if circu_check(i)])+2)
-print(time.time() - start)
