@@ -1,4 +1,3 @@
-
 public class Problem3 {
 	public static boolean primecheck(long x) {
 		for (int i = 3; i < Math.sqrt(x); i += 2) {
@@ -15,5 +14,4 @@ public class Problem3 {
 		}
 		System.out.println(ans);
 	}
-
 }
