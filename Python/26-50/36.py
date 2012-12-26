@@ -2,21 +2,7 @@
 def convert(x):
     n = ""
     while x != 0:
-        if x % 2 == 0:
-            n += "0"
-        else:
-            n += "1"
-        x = x // 2
+        n += str(x % 2); x //= 2
     return n[::-1]
-p = []
-ans = 0
-x = 1
-while x < 999999:
-    if str(x)[::-1] == str(x):
-        p.append(x)
-    x += 2
-for i in p:
-    temp = convert(i)
-    if temp[::-1] == temp:
-        ans += i
-print(ans)
+p = [i for i in range(1, 999999, 2) if str(i)[::-1] == str(i)]
+print(sum([i for i in p if convert(i) == convert(i)[::-1]]))
