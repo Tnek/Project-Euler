@@ -6,8 +6,6 @@ def chain(x):
         else: x = (x * 3) + 1
         count += 1
     return count
-
-temp = 0
 n = [i for i in range(500001, 1000000, 2)]
 y = [chain(i) for i in range(500001, 1000000, 2)]
 print(n[y.index(max(y))])
