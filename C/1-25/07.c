@@ -16,4 +16,5 @@ int main(int argc, char *argv[])
         if (prime(i))
             pcount++;
    printf("%d\n", i-2);
+   return 0;
 }
