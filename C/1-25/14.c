@@ -13,7 +13,7 @@ long int seq(long int n, long int c)
 int main(int argc, char *argv[])
 {
     long int i, temp, maxnum, maxseq=10;
-    for (i = 2; i < 1000000; i++)
+    for (i = 500001; i < 1000000; i+=2)
     {
         temp = seq(i, 0);
         if (temp > maxseq) {
